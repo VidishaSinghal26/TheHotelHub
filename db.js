@@ -22,16 +22,14 @@ const connectToMongo =  () => {
      .then( ()=>
         console.log("Connected to mongo Successful")
     )
+    .catch( (err) => 
+    console.log(console.log(err)
+    ))
 }
-
 
 module.exports = connectToMongo;
 
 // mongoose.connect(mongoURI, {useNewUrlParser: true, useUnifiedTopology: true, useCreateIndex: true} )
-
-
-
-
 // var connection = mongoose.connection;
 
 // connection.on('connected' , ()=>{
