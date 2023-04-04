@@ -5,20 +5,20 @@ const HomeScreen = () => {
  
   const [rooms, setData] = useState([])
 
-  useEffect(() => {
     const fetchData =  async () =>{
       try {
-        const {data: response} = await axios.get('api/rooms/getallrooms');
-        setData(response);
-        
+        const res = await axios.get('http://localhost:5000/rooms/');
+        const data = await res.data;
+        console.log(data)
+        return data;
       } catch (error) {
         console.error(error.message);
       }
   
     }
-
-    fetchData();
-  }, []);
+    useEffect(() => {
+    fetchData().then(data=>setData(data.rooms));
+    }, []);
 
   return (
     <div>
