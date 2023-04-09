@@ -16,7 +16,7 @@ const HomeScreen = () => {
         const data = (await axios.get('http://localhost:5000/api/rooms/getallrooms')).data
 
         setData(data.rooms)
-        console.log(data);
+        //console.log(data);
         setloading(false)
         
       } catch (error) {

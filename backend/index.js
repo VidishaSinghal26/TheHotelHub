@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 //import dotenv from 'dotenv';
 import roomsRoute from "./routes/roomsRoute";
+import usersRoute from "./routes/usersRoute";
 import cors from 'cors'
 //import postRouter from "./routing/post-routes";
 
@@ -16,6 +17,7 @@ const app = express();
 app.use(cors());
 app.use(express.json())
 app.use('/api/rooms' , roomsRoute)
+app.use('/api/users', usersRoute)
 //app.use('/api/rooms' , roomsRoute)
 
 //connection

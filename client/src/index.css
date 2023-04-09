@@ -52,3 +52,15 @@ h1{
   justify-content: center;
   text-align: center;
 }
+
+
+input{
+  box-shadow: none;
+  margin-top: 10px;
+  margin-bottom: 10px;
+}
+.cee{
+  text-align: center;
+  font-size: 40px;
+  font-weight: bold;
+}

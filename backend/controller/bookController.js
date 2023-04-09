@@ -1,6 +1,5 @@
 import { compareSync, hashSync } from "bcryptjs";
 import  Rooms from "../models/room";
-// const rooms = require( "../models/room")
 
 export const getallroomsbyid = async (req, res) => {
   const roomsid = req.body.roomsid;
