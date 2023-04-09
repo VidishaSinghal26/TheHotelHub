@@ -15,7 +15,8 @@ const app = express();
 //middleware
 app.use(cors());
 app.use(express.json())
-app.use('/rooms' , roomsRoute)
+app.use('/api/rooms' , roomsRoute)
+//app.use('/api/rooms' , roomsRoute)
 
 //connection
 // const connectDB = require('./db')

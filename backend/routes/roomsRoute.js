@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { getallrooms} from "../controller/roomController";
+import { getallroomsbyid} from "../controller/bookController";
 
 
 // const express = require('express')
@@ -8,7 +9,8 @@ import { getallrooms} from "../controller/roomController";
 
 const router  = Router()
 
-router.get("/",getallrooms);
+router.get("/getallrooms",getallrooms);
+router.post("/getallroomsbyid", getallroomsbyid);
 
 // router.get("/getallrooms" , async(req,res) => {
 //     try {
