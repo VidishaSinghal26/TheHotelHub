@@ -6,6 +6,7 @@ import Error from '../components/Error';
 
 function LoginScreen() {
   const [email, setemail] = useState('')
+ // const [user, setuser] = useState('')
   const [password, setpassword] = useState('')
   const [loading, setloading] = useState(false);
   const [error,seterror] = useState()
@@ -13,6 +14,7 @@ function LoginScreen() {
   async function login (){
    
       const user = {
+       // name,
         email,
         password,
       }
@@ -20,7 +22,10 @@ function LoginScreen() {
         
         setloading(true)
         const result = (await axios.post('http://localhost:5000/api/users/login', user )).data;
-        console.log(user.email)
+       // email= result.
+        setemail(result.email);
+      //  setuser(result.user);
+        console.log(result.email)
         setloading(false)
 
         localStorage.setItem('currentUser' , JSON.stringify(result));

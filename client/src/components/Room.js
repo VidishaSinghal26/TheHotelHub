@@ -1,10 +1,9 @@
 import React,{useState} from 'react'
 import {Modal,Button,Carousel} from 'react-bootstrap'
 import {Link} from 'react-router-dom'
-import './NavBar.css';
 
 
-function Room({rooms}) {
+function Room({rooms , fromdate ,todate}) {
 
   const [show, setShow] = useState(false);
 
@@ -24,10 +23,14 @@ function Room({rooms}) {
           <p>Phone number : {rooms.phonenumber}</p>
           <p>Type :{rooms.type}</p>
           </b>
+
+         
           <div style={{float:'right'}}>
-          <Link to={`/book/${rooms._id}`}>
+
+          {(fromdate && todate) && (<Link to={`/book/${rooms._id}/${fromdate}/${todate}`}>
           <button className='btn btn-primary'> Book Now</button>
-          </Link>
+          </Link>)}
+          
             
             <button className='btn btn-primary' onClick={handleShow}> View Details</button>
           </div>

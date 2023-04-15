@@ -1,14 +1,24 @@
-import React, { useEffect, useState} from 'react';
+import React, { useEffect, useState } from 'react';
 import axios from 'axios';
 import Room from '../components/Room';
 import Loader from '../components/Loader';
 import Error from '../components/Error';
+import moment from 'moment'
+import 'antd/dist/reset.css';
+import { DatePicker, Space, message } from 'antd';
+
+const { RangePicker } = DatePicker;
 
 const HomeScreen = () => {
- 
+
   const [rooms, setData] = useState([])
   const [loading, setloading] = useState();
-  const [error,seterror] = useState()
+  const [error, seterror] = useState()
+
+  const [fromdate, setfromdate] = useState();
+  const [todate, settodate] = useState();
+  const [duplicaterooms, setduplicaterooms] = useState([]);
+
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -16,9 +26,10 @@ const HomeScreen = () => {
         const data = (await axios.get('http://localhost:5000/api/rooms/getallrooms')).data
 
         setData(data.rooms)
+        setduplicaterooms(data.rooms)
         //console.log(data);
         setloading(false)
-        
+
       } catch (error) {
         seterror(true)
         console.log(error);
@@ -28,36 +39,75 @@ const HomeScreen = () => {
     fetchData();
   }, []);
 
-    // const fetchData =  async () =>{
-    //   try {
-    //     setloading(true)
-    //     const res = await axios.get('http://localhost:5000/api/rooms/getallrooms');
-    //     const data = await res.data;
-    //     console.log(data)
-    //     setloading(false)
-    //     return data;
-        
-    //   } catch (error) {
-    //     seterror(true)
-    //     console.error(error.message);
-    //     setloading(false)
-    //   }
-  
-    // }
-    // useEffect(() => {
-    // fetchData().then(data=>setData(data.rooms));
-    // }, []);
+
+  function filterByDate(dates) {
+
+
+    console.log(dates[0].format('DD-MM-YYYY'))
+    console.log(dates[1].format('DD-MM-YYYY'))
+    setfromdate(dates[0].format('DD-MM-YYYY'))
+    settodate(dates[1].format('DD-MM-YYYY'))
+
+    var c = 0;
+    var temprooms = []
+    var availability = false;
+    for (const room of duplicaterooms) {
+
+      if (room.currentbookings.length > 0) {
+       
+        for (const booking of room.currentbookings) {
+
+          if ( (!moment(dates[0].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) )
+            && (!moment(dates[1].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate))) {
+
+            if (dates[0].format('DD-MM-YYYY') !== booking.fromdate &&
+              dates[0].format('DD-MM-YYYY') !== booking.todate &&
+              dates[1].format('DD-MM-YYYY') !== booking.fromdate &&
+              dates[1].format('DD-MM-YYYY') !== booking.todate) 
+              {
+              console.log(booking.fromdate)
+              availability = true;
+             
+            }
+            // else{
+            //   availability = false;
+            // }
+          }
+          // else{
+          //   availability = false;
+          // }
+        }
+      }
+      // else{
+      //  availability=false;
+      // }
+     
+       if (availability  === true || room.currentbookings.length === 0 ) {
+            console.log("hello"+ `${c}`);
+            c++;
+            temprooms.push(room)
+          }
+      setData(temprooms)
+    }
+  }
 
   return (
     <div className='container'>
-        <div className='row justify-content-center mt-5'>
-            {loading ? (<Loader/>) : rooms.length >1 ?  (rooms.map((rooms) =>{
-            return <div className='col-md-9 mt-2'>
-                  <Room rooms={rooms} />
-                  </div>
-          })
-          ):(<Error/>)  }
+      <div className='row  mt-5'>
+        <div className='col-md-3'>
+          <RangePicker format={'DD-MM-YYYY'} onChange={filterByDate} />
         </div>
+      </div>
+
+
+      <div className='row justify-content-center mt-5'>
+        {loading ? (<Loader />) : rooms.length > 1 ? (rooms.map((rooms) => {
+          return <div className='col-md-9 mt-2'>
+            <Room rooms={rooms} fromdate={fromdate} todate={todate} />
+          </div>
+        })
+        ) : (<Error message={'Home Screen Not Available'} />)}
+      </div>
     </div>
   );
 }

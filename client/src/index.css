@@ -48,11 +48,6 @@ h1{
 .d-block{
   height: 300px;
 }
-.sl{
-  justify-content: center;
-  text-align: center;
-}
-
 
 input{
   box-shadow: none;
@@ -63,4 +58,31 @@ input{
   text-align: center;
   font-size: 40px;
   font-weight: bold;
+}
+
+.navbar{
+  background-color: rgb(59, 52, 52) !important;
+  height: 80px;
+  padding: 20px;
+  
+}
+.nav-link:hover{
+  color: rgb(204, 244, 244);
+}
+.navbar-brand:hover{
+  color: rgb(196, 249, 249);
+}
+.nav-link{
+  color: aliceblue;
+  /* background-color: blue; */
+}
+.navbar-brand{
+  color:white;
+}
+.navbar-nav{
+  margin-left: auto;
+  padding: 20px;
+}
+.nav-item{
+  padding: 10px;
 }

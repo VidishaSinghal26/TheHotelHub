@@ -4,6 +4,7 @@ import mongoose from "mongoose";
 import roomsRoute from "./routes/roomsRoute";
 import usersRoute from "./routes/usersRoute";
 import cors from 'cors'
+import bookingRoute from './routes/bookingRoute'
 //import postRouter from "./routing/post-routes";
 
 // const express = require('express')
@@ -18,6 +19,7 @@ app.use(cors());
 app.use(express.json())
 app.use('/api/rooms' , roomsRoute)
 app.use('/api/users', usersRoute)
+app.use('/api/booking' , bookingRoute)
 //app.use('/api/rooms' , roomsRoute)
 
 //connection

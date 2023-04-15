@@ -1,11 +1,10 @@
 import React from 'react'
 
-function Error({meassge}) {
+function Error({message}) {
     return (
         <div>
-            <div class="alert alert-danger" role="alert">
-                Something went wrong , please try it later
-                {meassge}
+            <div class="alert alert-warning" role="alert">
+                {message}
             </div>
         </div>
     )

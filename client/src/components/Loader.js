@@ -7,15 +7,14 @@ function Loader() {
     
       
   return (
-    <div style={{marginTop:'150px',}}>
-     <div className='sl text-center'>
-      
-
+    <div style={{marginTop:'20px',marginLeft:'50%',marginRight:'40%'}}>
+     <div >
       <HashLoader
         color='#000'
         loading={loading}
         cssOverride=''
         size={80}
+        cont
         // aria-label="Loading Spinner"
         // data-testid="loader"
       />

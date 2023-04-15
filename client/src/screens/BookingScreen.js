@@ -3,13 +3,20 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import Moment from 'moment';
 
 const BookingScreen = () => {
   const [loading, setloading] = useState(true);
   const [error,seterror] = useState();
   const [room, setroom] = useState();
 
-  let {roomsid}  = useParams();
+  let {roomsid , fromdate , todate}  = useParams();
+  const fd = Moment(fromdate , 'DD-MM-YYYY')
+  const td = Moment(todate , 'DD-MM-YYYY')
+
+  const totaldays = Moment.duration(td.diff(fd)).asDays()+1
+  const [totalamount , settotalamount] = useState();
+  
 
   useEffect(() => {
     const fetchData = async () => {
@@ -18,7 +25,8 @@ const BookingScreen = () => {
         const data = (await axios.post('http://localhost:5000/api/rooms/getallroomsbyid',  {roomsid : roomsid})).data
 
         setroom(data.room);
-        console.log(data.room);
+        settotalamount(data.room.rentperday*totaldays)
+        //console.log(data.room);
         setloading(false)
         
       } catch (error) {
@@ -30,9 +38,27 @@ const BookingScreen = () => {
     fetchData();
   }, [roomsid]);
 
+
+  async function bookRoom(){
+    const bookingDetails = {
+      room ,
+      userid:JSON.parse(localStorage.getItem('currentUser'))._id,
+      fromdate,
+      todate,
+      totalamount,
+      totaldays,
+    }
+
+    try {
+      const result = await axios.post('http://localhost:5000/api/booking/bookroom' , bookingDetails);
+      console.log(result)
+    } catch (error) {
+      
+    }
+  }
+
   return (
     <div className="m-5">
-      
       {loading ? (<Loader/>) : room ?  (<div>
         <div className="row justify-content-center mt-3 bs"> 
          <div className="col-md-6">
@@ -41,14 +67,15 @@ const BookingScreen = () => {
          </div>
 
          <div className="col-md-6">
-
+          
             <div style={{textAlign:'right'}}>
+            
                 <h1>Booking Details</h1>
                 <hr />
                 <b>
-                <p>Name : </p>
-                <p>From Date : </p>
-                <p> To Date : </p>
+                <p>Name : {JSON.parse(localStorage.getItem('currentUser')).name} </p>
+                <p>From Date : {fromdate}</p>
+                <p>To Date : {todate}</p>
                 <p>Max Count : {room.maxcount}</p>
                 </b>
             </div>
@@ -57,15 +84,15 @@ const BookingScreen = () => {
                 <b>
                   <h1>Amount</h1>
                   <hr />
-                  <p>Total Days :</p>
+                  <p>Total Days : {totaldays} </p>
                   <p>Rent per day : {room.rentperday}</p>
-                  <p>Total Amount :</p>
+                  <p>Total Amount : {totalamount}</p>
                 </b>
               
             </div>
 
             <div style={{float:'right'}}> 
-              <button className="btn btn-primary">Pay Now</button>
+              <button className="btn btn-primary" onClick={bookRoom}>Pay Now</button>
             </div>
         
          </div>

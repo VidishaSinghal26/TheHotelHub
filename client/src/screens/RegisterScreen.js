@@ -51,7 +51,7 @@ function RegisterScreen() {
     <div>
 
     {loading && (<Loader/> )}
-    {error && (<Error meassge={'cfvgbhjnkm'}/> )}
+    {error && (<Error/> )}
     
       <div className="row justify-content-center mt-5">
        <div className="col-md-5">
@@ -63,7 +63,7 @@ function RegisterScreen() {
           <input type="text" className="form-control" placeholder="password" value={password} onChange={(e) => { setpassword(e.target.value) }} />
           <input type="text" className="form-control" placeholder="confirm password" I value={cpassword} onChange={(e) => { setcpassword(e.target.value) }} />
           <div className='cee'>
-            <button className='btn btn-primary mt-3' onClick={register}> Register </button>
+          <button className='btn btn-primary mt-3' onClick={register}> Register </button>
           </div>
         </div>
         
