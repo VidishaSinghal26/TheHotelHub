@@ -3,6 +3,7 @@ import { useParams } from "react-router-dom";
 import axios from "axios";
 import Loader from "../components/Loader";
 import Error from "../components/Error";
+import Swal from 'sweetalert2';
 import Moment from 'moment';
 import StripeCheckout from 'react-stripe-checkout';
 
@@ -24,7 +25,6 @@ const BookingScreen = () => {
       try {
         setloading(true)
         const data = (await axios.post('http://localhost:5000/api/rooms/getallroomsbyid', { roomsid: roomsid })).data
-
         setroom(data.room);
         settotalamount(data.room.rentperday * totaldays)
         //console.log(data.room);
@@ -57,10 +57,21 @@ const BookingScreen = () => {
     }
 
     try {
+
+      setloading(true);
       const result = await axios.post('http://localhost:5000/api/booking/bookroom', bookingDetails);
+      setloading(false);
+      Swal.fire('Congratulations' , 'Your room booked successfully' , 'success').then(result=>{
+        if(result.value){
+          window.location.href = '/booking'
+        }
+      })
       console.log(result)
     } catch (error) {
-
+      seterror(true)
+      console.log(error);
+      setloading(false)
+      Swal.fire('Oops', 'Something went wrong', 'error');
     }
 
   }
@@ -104,7 +115,7 @@ const BookingScreen = () => {
               <StripeCheckout
                 amount = { totalamount*100}
                 token={onToken}
-                currency="INR"
+                currency='INR'
                 stripeKey="pk_test_51MxSFxSDImWCEH67GxHRodFinMqg6arUcXOZcoQjski6DEibHE6cAbaqnabOkgKQKNVJ8zp8FInbZqR5Wfw7Gl5A00iJXbEUSW"
               >
               <button className="btn btn-primary" >Pay Now</button>

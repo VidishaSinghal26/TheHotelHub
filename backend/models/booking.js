@@ -27,7 +27,8 @@ const bookingSchema = mongoose.Schema({
     },
     status:{
         type: String , required: true , default:'booked'
-    }
+    },
+    token:[]
 },{
     timestamps :true
 })
