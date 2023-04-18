@@ -18,6 +18,8 @@ const HomeScreen = () => {
   const [fromdate, setfromdate] = useState();
   const [todate, settodate] = useState();
   const [duplicaterooms, setduplicaterooms] = useState([]);
+  const [searchkey , setsearchkey] = useState('');
+  const [ type , settype ] = useState('all')
 
   useEffect(() => {
     const fetchData = async () => {
@@ -54,20 +56,19 @@ const HomeScreen = () => {
     for (const room of duplicaterooms) {
 
       if (room.currentbookings.length > 0) {
-       
+
         for (const booking of room.currentbookings) {
 
-          if ( (!moment(dates[0].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate) )
+          if ((!moment(dates[0].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate))
             && (!moment(dates[1].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate))) {
 
             if (dates[0].format('DD-MM-YYYY') !== booking.fromdate &&
               dates[0].format('DD-MM-YYYY') !== booking.todate &&
               dates[1].format('DD-MM-YYYY') !== booking.fromdate &&
-              dates[1].format('DD-MM-YYYY') !== booking.todate) 
-              {
+              dates[1].format('DD-MM-YYYY') !== booking.todate) {
               console.log(booking.fromdate)
               availability = true;
-             
+
             }
             // else{
             //   availability = false;
@@ -81,32 +82,67 @@ const HomeScreen = () => {
       // else{
       //  availability=false;
       // }
-     
-       if (availability  === true || room.currentbookings.length === 0 ) {
-            console.log("hello"+ `${c}`);
-            c++;
-            temprooms.push(room)
-          }
+
+      if (availability === true || room.currentbookings.length === 0) {
+        console.log("hello" + `${c}`);
+        c++;
+        temprooms.push(room)
+      }
       setData(temprooms)
     }
   }
 
+  function filterBySearch(){
+    const temprooms = duplicaterooms.filter(rooms => rooms.name.toLowerCase().includes(searchkey.toLowerCase()))
+    setData(temprooms)
+  }
+
+  function filterByType(e){
+    settype(e)
+    if(e!== 'all'){
+      const temprooms = duplicaterooms.filter(rooms => rooms.type.toLowerCase() === e.toLowerCase())
+      setData(temprooms)
+    }
+    else{
+      setData(duplicaterooms)
+    }
+    
+  }
+
   return (
     <div className='container'>
-      <div className='row  mt-5'>
+      <div className='row  mt-5 bs'>
         <div className='col-md-3'>
           <RangePicker format={'DD-MM-YYYY'} onChange={filterByDate} />
         </div>
+
+        <div className='col-md-6'>
+          <input type="text" className='form-control' placeholder='search rooms' 
+            value ={searchkey} onChange={(e) => setsearchkey(e.target.value)} onKeyUp={filterBySearch}
+          />
+          
+        </div>
+
+        <div className='col-md-3'  >
+          <select className='form-control' value={type} onChange={(e) => {filterByType(e.target.value)}}>
+            <option value="all">All</option>
+            <option value="delux">Delux</option>
+            <option value="non-delux">Non-Delux</option>
+          </select>
+
+        </div>
+
+
       </div>
 
 
       <div className='row justify-content-center mt-5'>
-        {loading ? (<Loader />) : rooms.length > 1 ? (rooms.map((rooms) => {
+        {loading ? (<Loader />) : (rooms.map((rooms) => {
           return <div className='col-md-9 mt-2'>
             <Room rooms={rooms} fromdate={fromdate} todate={todate} />
           </div>
         })
-        ) : (<Error message={'Home Screen Not Available'} />)}
+        ) }
       </div>
     </div>
   );
