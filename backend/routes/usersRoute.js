@@ -8,6 +8,4 @@ router.post("/register", getregisteruser);
 
 router.post("/login", getloginuser);
 
-
-
 export default router;

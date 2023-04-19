@@ -21,6 +21,10 @@ const BookingScreen = () => {
 
 
   useEffect(() => {
+
+    if(!localStorage.getItem('currentUser')){
+      window.location.reload = '/login'
+    }
     const fetchData = async () => {
       try {
         setloading(true)
@@ -63,7 +67,7 @@ const BookingScreen = () => {
       setloading(false);
       Swal.fire('Congratulations' , 'Your room booked successfully' , 'success').then(result=>{
         if(result.value){
-          window.location.href = '/booking'
+          window.location.href = '/profile'
         }
       })
       console.log(result)

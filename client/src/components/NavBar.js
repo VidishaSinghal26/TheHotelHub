@@ -13,7 +13,7 @@ function NavBar() {
     return (
         <div>
             <nav class="navbar navbar-expand-lg ">
-                <a class="navbar-brand" href="#">The Hotel Hub</a>
+                <a class="navbar-brand" href="/home">The Hotel Hub</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" ><i class="fa-solid fa-bars" style={{ color: "#ffffff" }}></i></span>
                 </button>
@@ -26,7 +26,7 @@ function NavBar() {
                                     {user.name}
                                 </button>
                                 <div class="dropdown-menu" aria-labelledby="dropdownMenuButton">
-                                    <a class="dropdown-item" href="/booking"> Bookings </a>
+                                    <a class="dropdown-item" href="/profile"> Profile </a>
                                     <a class="dropdown-item" href="#" onClick={logout}> Log out</a>
                                 </div>
                             </div>
