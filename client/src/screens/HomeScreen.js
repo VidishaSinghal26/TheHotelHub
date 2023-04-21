@@ -110,21 +110,21 @@ const HomeScreen = () => {
   }
 
   return (
-    <div className='container'>
+    <div className='container ' >
       <div className='row  mt-5 bs'>
         <div className='col-md-3'>
           <RangePicker format={'DD-MM-YYYY'} onChange={filterByDate} />
         </div>
 
         <div className='col-md-6'>
-          <input type="text" className='form-control' placeholder='search rooms' 
+          <input type="text" className='form-control' placeholder='search rooms' style={{marginTop:'1px'}}
             value ={searchkey} onChange={(e) => setsearchkey(e.target.value)} onKeyUp={filterBySearch}
           />
           
         </div>
 
         <div className='col-md-3'  >
-          <select className='form-control' value={type} onChange={(e) => {filterByType(e.target.value)}}>
+          <select className='form-control' value={type} style={{marginTop:'1px'}} onChange={(e) => {filterByType(e.target.value)}}>
             <option value="all">All</option>
             <option value="delux">Delux</option>
             <option value="non-delux">Non-Delux</option>

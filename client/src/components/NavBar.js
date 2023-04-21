@@ -37,9 +37,6 @@ function NavBar() {
                             <li class="nav-item">
                                 <a class="nav-link" href="/login" ><i class="bi bi-box-arrow-in-right"></i> Login</a>
                             </li>
-                            <li class="nav-item">
-                                <a class="nav-link" href="/#" ><i class="bi bi-person-lines-fill"></i> Contact</a>
-                            </li>
                         </>)}
 
                     </ul>

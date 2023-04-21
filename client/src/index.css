@@ -53,15 +53,17 @@ h1{
 
 input {
   box-shadow: none;
-  margin-top: 5px;
-  margin-bottom: 5px;
-  padding: 50px;
+  margin-top: 50px;
+  margin-bottom: 50px;
+  padding: 5px;
   height: 50px;
+  width: 540px;
+  margin: 10px;
   
 }
 .form-control{
   height: 31px;
-  margin-top: 1px;
+  margin-top: 10px;
 }
 .cee{
   text-align: center;
@@ -70,7 +72,7 @@ input {
 }
 
 .navbar{
-  background-color: rgb(59, 52, 52) !important;
+  background-color: rgb(32, 28, 28) ;
   height: 80px;
   padding: 20px;
   
@@ -94,4 +96,21 @@ input {
 }
 .nav-item{
   padding: 10px;
+}
+
+.landing{
+  background-color: rgb(59, 52, 52);
+  height: 88vh;
+  padding-top: 120px;
+  width: 210.3vh ;
+}
+.landingbtn{
+  background-color: white;
+  color: black;
+  margin-top: 20px;
+}
+
+.underbutton{
+  margin: 5px;
+  margin-left: 10px;
 }

@@ -9,10 +9,10 @@ const roomSchema = mongoose.Schema({
         type: Number 
     },
     phoneNumber :{
-        type: Number
+        type: Number, required: true
     },
     rentperday :{
-        type: Number 
+        type: Number , required: true
     },
     imageurls:[],
     currentbookings :[],

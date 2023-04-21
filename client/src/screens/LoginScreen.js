@@ -2,6 +2,7 @@ import axios from 'axios'
 import React, { useState, useEffect } from 'react'
 import Loader from '../components/Loader';
 import Error from '../components/Error'; 
+import {Link} from 'react-router-dom'
 
 
 function LoginScreen() {
@@ -54,6 +55,9 @@ function LoginScreen() {
           <input type="text" className="form-control" placeholder="email" value={email} onChange={(e) => { setemail(e.target.value) }} />
           <input type="password" className="form-control" placeholder="password" value={password} onChange={(e) => { setpassword(e.target.value) }} />
            <button className='btn btn-primary mt-3' onClick={login}> Login </button>
+           <br />
+           <br />
+           <Link to='/register' className='underbutton'>SignUp</Link>
         </div>
         
         </div>

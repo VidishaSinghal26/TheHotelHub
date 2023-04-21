@@ -43,7 +43,7 @@ router.post("/bookroom", async (req, res) => {
           totalamount : totalamount,
           totaldays : totaldays,
           transactionId: '1234',
-          token:token
+          detail:token
         })
         const booking = await newbooking.save();
     
@@ -130,5 +130,20 @@ router.post("/cancelbooking" ,async (req,res)=>{
     console.log(err)
   }
 });
+
+router.post("/getallbookings" ,async (req,res)=>{
+
+ // const {bookingid , roomid} = req.body;
+
+  try{
+    const bookings = await Booking.find()
+    res.send(bookings)
+  }
+  catch(err){
+    return res.status(200).json({err})
+    console.log(err)
+  }
+});
+
 
 export default router;

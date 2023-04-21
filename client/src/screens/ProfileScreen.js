@@ -26,7 +26,6 @@ function ProfileScreen() {
              <br />
              <h1>Name : {user.name}</h1>
              <h1>Email : {user.email}</h1>
-             <h1>Admin :{user.isAdmin ? ' YES' : ' NO'} </h1>
             </Tabs.TabPane>
             <Tabs.TabPane tab="Bookings" key="2">
              <MyBookings />
@@ -45,9 +44,9 @@ export function MyBookings(){
    const user = JSON.parse(localStorage.getItem('currentUser'));
    const [bookings, setbookings] = useState([])
    const [loading, setloading] = useState(false );
-  const [error, seterror] = useState();
+   const [error, seterror] = useState();
    console.log(user._id);
-
+   //const rooms;
     useEffect(() => {
         const fetchData = async () => {
           try {

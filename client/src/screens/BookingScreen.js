@@ -23,7 +23,7 @@ const BookingScreen = () => {
   useEffect(() => {
 
     if(!localStorage.getItem('currentUser')){
-      window.location.reload = '/login'
+      window.location.href = '/login'
     }
     const fetchData = async () => {
       try {

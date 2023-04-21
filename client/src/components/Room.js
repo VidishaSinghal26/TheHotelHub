@@ -19,7 +19,7 @@ function Room({rooms , fromdate ,todate}) {
           <h1>{rooms.name}</h1>
           <b>
           {""}
-          <p>Max Count : {rooms.maxcount}</p>
+          <p>Rent-Per-Day : {rooms.rentperday}</p>
           <p>Phone number : {rooms.phonenumber}</p>
           <p>Type :{rooms.type}</p>
           </b>
