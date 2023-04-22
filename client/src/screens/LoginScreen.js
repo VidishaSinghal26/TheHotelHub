@@ -43,13 +43,13 @@ function LoginScreen() {
   }
 
   return (
-    <div>
+    <div className='landing2' >
 
-    {loading && (<Loader/>)}
-      <div className="row justify-content-center mt-5">
+      <div className="row justify-content-center ">
        <div className="col-md-5">
+       {loading && (<Loader/>)}
         {error && (<Error message={'Invalid Credentials'}/>)}
-        <div className='bs'>
+        <div className='bs mt-5'>
           <p className='cee'>Login</p>
          
           <input type="text" className="form-control" placeholder="email" value={email} onChange={(e) => { setemail(e.target.value) }} />

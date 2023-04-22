@@ -6,18 +6,32 @@ import Swal from 'sweetalert2';
 
 function AdminScreen() {
 
-    // useEffect(() => {
-    //         if(!JSON.parse(localStorage.getItem('currentUser')).isAdmin){
-    //           console.log("hahah")
-    //             window.location.href="/admin"
-    //         }
-    //           window.location.href="/admin"
+  const useradmin = JSON.parse(localStorage.getItem('currentUser')).isAdmin;
 
-    //   }, []);
+  useEffect(()=>{
+    if(!useradmin){
+        window.location.href= "/home";
+    }
+})
+
+//   useEffect(() => {
+//     console.log(JSON.parse(localStorage.getItem('currentUser')).isAdmin)
+//     if(JSON.parse(localStorage.getItem('currentUser')).isAdmin){
+//       console.log(JSON.parse(localStorage.getItem('currentUser')).isAdmin)
+//         window.location.href="/admin"
+//     }
+//     window.location.href="/home"
+//     // else if((JSON.parse(localStorage.getItem('currentUser')).isAdmin) === true){
+//     //   window.location.href="/admin"
+//     // }
+
+// });
+ 
 
   return (
-    <div className='mt-3 ml-3  mr-3 bs'>
-        <h2 className='text-center' style={{fontSize:'30px'}}><b> Admin Panel </b></h2>
+    <div className='landing2' style={{height:'582px'}}>
+        <div className=' ml-3  mr-3 bs' style={{marginTop:'5px'}}>
+        <h2 className='text-center' style={{fontSize:'30px' }}><b> Admin Panel </b></h2>
        <Tabs defaultActiveKey='1'>
             <Tabs.TabPane tab="Booking" key="1">
              <Bookings/>
@@ -33,7 +47,10 @@ function AdminScreen() {
             </Tabs.TabPane>
            </Tabs>
     </div>
-  )
+    </div>
+  
+  );
+
 }
 
 export default AdminScreen
@@ -73,7 +90,7 @@ export function Bookings(){
          <h1>Bookings</h1>
             {loading && (<Loader/>)}
             <table class='table table-bordered table-dark'>
-                <thead className="bs ">
+                <thead >
                     <tr>
                         <th>Booking Id</th>
                         <th>User Id</th>
@@ -142,7 +159,7 @@ export function Bookings(){
           {loading && (<Loader/>)}
             
             <table class='table table-bordered table-dark'>
-                <thead className="bs ">
+                <thead >
                     <tr>
                         <th>Room Id</th>
                         <th>Name</th>
@@ -204,7 +221,7 @@ export function Bookings(){
          <h1>Users</h1>
          {loading && (<Loader/>)}
          <table class='table table-bordered table-dark'>
-                <thead className="bs ">
+                <thead >
                     <tr>
                         <th>User</th>
                         <th>Name</th>
@@ -232,13 +249,13 @@ export function Bookings(){
 
  export function Addroom(){
 
-  const [loading, setloading] = useState(true);
+  const [loading, setloading] = useState(false);
   const [error, seterror] = useState();
   const[name, setname] = useState('');
   const[rentperday , setrentperday] = useState();
-  const[maxcount, setmaxcount] = useState();
+  const[maxcount, setmaxcount] = useState('');
   const[description , setdescription] = useState();
-  const[phonenumber, setphonenumber] = useState();
+  const[phonenumber, setphonenumber] = useState('');
   const[type , settype] = useState();
   const[imageurl1 , setimageurl1] = useState();
   const[imageurl2 , setimageurl2] = useState();
@@ -278,8 +295,9 @@ export function Bookings(){
 
   return(
     <div className="row">
+         {loading && (<Loader/>)}
      <div className="col-md-5 " >
-     {loading && (<Loader/>)}
+     
       <input  type="text" className='form-control' placeholder='room name' 
         value={name}  onChange={(e)=>{setname(e.target.value)}}
       />

@@ -1,3 +1,6 @@
+*{
+  margin:0px ;
+}
 @import url('https://fonts.googleapis.com/css2?family=Montserrat&display=swap');
 body {
   margin: 0;
@@ -35,10 +38,11 @@ h1{
   margin-right: 5px;
 }
 .bs{
-  margin: 5px;
+  /* margin: 5px; */
   padding: 20px;
   box-shadow: rgba(0, 0, 0, 0.24) 0px 3px 8px;
   border-radius: 5px;
+  background-color: wheat;
 }
 
 .bigimg{
@@ -72,9 +76,9 @@ input {
 }
 
 .navbar{
-  background-color: rgb(32, 28, 28) ;
+  background-color: rgb(102, 51, 0) ;
   height: 80px;
-  padding: 20px;
+  /* padding: 20px; */
   
 }
 .nav-link:hover{
@@ -99,14 +103,41 @@ input {
 }
 
 .landing{
-  background-color: rgb(59, 52, 52);
-  height: 88vh;
+  background: url('https://banabithiresort.com/admin-login/img/634a692353df9.png') no-repeat;
+  background-size: 1500px 1000px;
+  height: 591px;
   padding-top: 120px;
   width: 210.3vh ;
 }
+.landing1{
+
+  background-image: url('images/design.png');
+    -webkit-backdrop-size:cover;
+    background-size:cover;
+    background-repeat: no-repeat;
+    background-position:center center;
+    height: 100%;
+  /* background: url('images/design.png') ;
+  background-size: 1500px 100% ; */
+}
+
+.landing2{
+
+  background-image: url('images/design.png');
+  background-size:cover;
+  background-repeat: no-repeat;
+  height: 573px;
+  /* -webkit-backdrop-size:cover;
+  
+  
+  background-position:center center; */
+  /* height: 100%; */
+  width: 100%;
+
+}
 .landingbtn{
-  background-color: white;
-  color: black;
+  background-color: black;
+  color: white;
   margin-top: 20px;
 }
 

@@ -18,16 +18,16 @@ function ProfileScreen() {
         }
     })
     return (
-        <div className="ml-3 mt-3">
-           <Tabs defaultActiveKey='1'>
-            <Tabs.TabPane tab="Profile" key="1" className='bs'>
+        <div className="landing2" style={{margin:'0px'}}>
+           <Tabs defaultActiveKey='1' className='ml-3 mt-3'>
+            <Tabs.TabPane tab="Profile" key="1" className='bs '>
              <h1>My Profile</h1>
 
              <br />
              <h1>Name : {user.name}</h1>
              <h1>Email : {user.email}</h1>
             </Tabs.TabPane>
-            <Tabs.TabPane tab="Bookings" key="2">
+            <Tabs.TabPane tab="Bookings" key="2" >
              <MyBookings />
             </Tabs.TabPane>
            </Tabs>
@@ -84,12 +84,12 @@ export function MyBookings(){
       }
 
     return (
-        <div>
+        <div className='landing1'>
             <div className='row'>
              <div className='col-md-6'>
               {loading && (<Loader/>)}
               {bookings && (bookings.map(booking =>{
-                return <div className='bs'>
+                return <div className='bs ' style={{marginTop:'5px'}}>
                   <h1>{booking.room}</h1>
                   <p><b>Booking Id</b> :{booking._id}</p>
                   <p><b>Check In</b> : {booking.fromdate}</p>

@@ -110,8 +110,8 @@ const HomeScreen = () => {
   }
 
   return (
-    <div className='container ' >
-      <div className='row  mt-5 bs'>
+    <div className='landing1 m-0' >
+      <div className='row bs m-0 ' >
         <div className='col-md-3'>
           <RangePicker format={'DD-MM-YYYY'} onChange={filterByDate} />
         </div>
@@ -131,12 +131,10 @@ const HomeScreen = () => {
           </select>
 
         </div>
-
-
       </div>
 
 
-      <div className='row justify-content-center mt-5'>
+      <div className='row justify-content-center mt-3'>
         {loading ? (<Loader />) : (rooms.map((rooms) => {
           return <div className='col-md-9 mt-2'>
             <Room rooms={rooms} fromdate={fromdate} todate={todate} />

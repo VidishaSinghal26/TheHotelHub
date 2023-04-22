@@ -1,4 +1,5 @@
 import React from 'react'
+import hotellogo from '../images/Hotel.png'
 
 
 function NavBar() {
@@ -12,7 +13,8 @@ function NavBar() {
     }
     return (
         <div>
-            <nav class="navbar navbar-expand-lg ">
+            <nav class="navbar navbar-expand-lg " style={{margin:'0px'}}>
+                <img src={hotellogo} alt="" style={{height:'50px' , width:'50px' , marginRight:'5px'}}/>
                 <a class="navbar-brand" href="/home">The Hotel Hub</a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarNav" aria-controls="navbarNav" aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon" ><i class="fa-solid fa-bars" style={{ color: "#ffffff" }}></i></span>

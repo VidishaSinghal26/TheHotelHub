@@ -81,7 +81,7 @@ const BookingScreen = () => {
   }
 
   return (
-    <div className="m-5">
+    <div className="landing1 m-5 ">
       {loading ? (<Loader />) : room ? (<div>
         <div className="row justify-content-center mt-3 bs">
           <div className="col-md-6">
@@ -132,6 +132,7 @@ const BookingScreen = () => {
 
       </div>) : (<Error />)}
     </div>
+    
   );
 }
 

@@ -25,5 +25,5 @@ export const getloginuser = async (req, res) => {
      _id : user._id
      
    }
-  return res.status(200).json( temp );
+  return res.status(200).json( user );
 };
