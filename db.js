@@ -1,6 +1,6 @@
 const mongoose = require('mongoose');
 
-var mongoURI = 'mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms' 
+var mongoURI = 'mongodb+srv://<username>:<password>@cluster0.mgwgzxk.mongodb.net/<database-name>' 
 
 // To connect with mongoDB server
 
