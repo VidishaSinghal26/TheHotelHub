@@ -10,7 +10,7 @@ In backend --> npm run dev
 In Client Folder 
 -----------------
 Run npm install
- ------------------
+
 Important Extensions on VSCODE
 ----------------------------------
 
