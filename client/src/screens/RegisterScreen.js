@@ -33,6 +33,8 @@ function RegisterScreen() {
         setemail('')
         setpassword('')
         setcpassword('')
+        
+        window.location.href = '/login'
 
       }
       catch (e) {
