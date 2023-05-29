@@ -4,12 +4,11 @@ import Booking from '../models/booking'
 //const Booking = require('../models/booking')
 import Room from "../models/room";
 import { v4 as uuidv4 } from 'uuid';
-//const stripe = require('stripe')('sk_test_51MxSFxSDImWCEH67YT4K9A0fUxM5TBBmix99aNxOi1JPjitzK07zMfYPUQt3m06WGyVanT85yR2n7rOGoNCMyyWy00OIq7y6Tw')
+
 import Stripe from 'stripe';
 import booking from "../models/booking";
-const stripe = new Stripe('sk_test_51MxSFxSDImWCEH67YT4K9A0fUxM5TBBmix99aNxOi1JPjitzK07zMfYPUQt3m06WGyVanT85yR2n7rOGoNCMyyWy00OIq7y6Tw');
-// import stripe from 'stripe';
-// import stripe from  ''
+const stripe = new Stripe('secret_key');
+
 
 
 router.post("/bookroom", async (req, res) => {
