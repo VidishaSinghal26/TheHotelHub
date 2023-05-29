@@ -2,8 +2,9 @@
 
 To run Project
 
-in client --> npm start
-in backend --> npm run dev
+In client --> npm start
+
+In backend --> npm run dev
 
 
 In Client Folder 
