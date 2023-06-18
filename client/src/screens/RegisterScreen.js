@@ -37,8 +37,6 @@ function RegisterScreen() {
         
         window.location.href = '/login'
 
-        window.location.href = '/login'
-
       }
       catch (e) {
 
