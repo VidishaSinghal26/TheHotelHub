@@ -55,7 +55,7 @@ router.post("/bookroom", async (req, res) => {
     res.send('Payment Successful , Your room is booked')
   }
   catch(error){
-    console.log('uffff')
+    console.log(error)
     return res.status(400).json({error})
   }
   
