@@ -5,10 +5,10 @@ const roomSchema = mongoose.Schema({
     name:{
         type : String, required: true
     },
-    maxCount :{
+    maxcount :{
         type: Number
     },
-    phoneNumber :{
+    phonenumber :{
         type: Number
     },
     rentperday :{
