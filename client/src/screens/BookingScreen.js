@@ -50,7 +50,7 @@ const BookingScreen = () => {
       }
     };
     fetchData();
-  }, [roomsid]);
+  },[roomsid]);
 
     
   // async function bookRoom() {
