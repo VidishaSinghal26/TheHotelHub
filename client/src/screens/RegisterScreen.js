@@ -34,6 +34,8 @@ function RegisterScreen() {
         setemail('')
         setpassword('')
         setcpassword('')
+        
+        window.location.href = '/login'
 
         window.location.href = '/login'
 
