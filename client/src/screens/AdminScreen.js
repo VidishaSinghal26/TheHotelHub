@@ -95,6 +95,7 @@ export function Bookings(){
                         <th>Booking Id</th>
                         <th>User Id</th>
                         <th>Room</th>
+                        <th>Booking Date</th>
                         <th>From</th>
                         <th>To</th>
                         <th>Status</th>
@@ -107,6 +108,7 @@ export function Bookings(){
                         <td>{booking._id}</td>
                         <td>{booking.userid}</td>
                         <td>{booking.room}</td>
+                        <td>{booking.bookingdate}</td>
                         <td>{booking.fromdate}</td>
                         <td>{booking.todate}</td>
                         <td>{booking.status}</td>
@@ -253,9 +255,9 @@ export function Bookings(){
   const [error, seterror] = useState();
   const[name, setname] = useState('');
   const[rentperday , setrentperday] = useState();
-  const[maxcount, setmaxcount] = useState('');
+  const[maxcount, setmaxcount] = useState();
   const[description , setdescription] = useState();
-  const[phonenumber, setphonenumber] = useState('');
+  const[phonenumber, setphonenumber] = useState();
   const[type , settype] = useState();
   const[imageurl1 , setimageurl1] = useState();
   const[imageurl2 , setimageurl2] = useState();

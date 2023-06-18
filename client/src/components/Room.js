@@ -46,7 +46,7 @@ function Room({rooms , fromdate ,todate}) {
             {rooms.imageurls.map(url =>{
               return <Carousel.Item>
                 <img
-                  className="d-block w-100 " 
+                  className="d-block w-100" 
                   src={url}
                   alt="First slide"
                 />

@@ -11,7 +11,6 @@ function LandingScreen() {
 
       <Link to="/home">
       <button className='btn landingbtn'> <b>Get Started</b></button>
-
       </Link>
       </div>
       

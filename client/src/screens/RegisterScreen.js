@@ -2,7 +2,8 @@ import React, { useState, useEffect } from 'react'
 import axios from 'axios'
 import Loader from '../components/Loader';
 import Error from '../components/Error';
-import Success from '../components/Success'
+import Success from '../components/Success';
+import {Link} from 'react-router-dom';
 
 function RegisterScreen() {
   const [name, setname] = useState('')
@@ -34,6 +35,8 @@ function RegisterScreen() {
         setpassword('')
         setcpassword('')
 
+        window.location.href = '/login'
+
       }
       catch (e) {
 
@@ -64,7 +67,7 @@ function RegisterScreen() {
               <input type="text" className="form-control" placeholder="password" value={password} onChange={(e) => { setpassword(e.target.value) }} />
               <input type="text" className="form-control" placeholder="confirm password" I value={cpassword} onChange={(e) => { setcpassword(e.target.value) }} />
               <div className='cee'>
-                <button className='btn btn-primary mt-3' onClick={register}> Register </button>
+                <button className='btn btn-primary mt-3' onClick={register}> Register  </button>
               </div>
             </div>
 

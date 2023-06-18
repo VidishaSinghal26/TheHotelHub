@@ -19,7 +19,7 @@ function ProfileScreen() {
     })
     return (
         <div className="landing2" style={{margin:'0px'}}>
-           <Tabs defaultActiveKey='1' className='ml-3 mt-3'>
+           <Tabs defaultActiveKey='1' className='ml-3'>
             <Tabs.TabPane tab="Profile" key="1" className='bs '>
              <h1>My Profile</h1>
 
@@ -72,7 +72,7 @@ export function MyBookings(){
           const result = await (await axios.post('http://localhost:5000/api/booking/cancelbooking' , {bookingid , roomid})).data
           console.log(result);
           setloading(false )
-          Swal.fire('Congrats' , 'Your booking has been cancelled' , 'success').then(result=>{
+          Swal.fire('OK' , 'Your booking has been cancelled' , 'success').then(result=>{
             window.location.reload();
           })
         }

@@ -76,23 +76,25 @@ input {
 }
 
 .navbar{
-  background-color: rgb(102, 51, 0) ;
+  background-color: rgb(240, 206, 142) ;
   height: 80px;
   /* padding: 20px; */
   
 }
 .nav-link:hover{
-  color: rgb(204, 244, 244);
+  color: rgb(102, 51, 0);
+  font-weight: bolder;
 }
 .navbar-brand:hover{
-  color: rgb(196, 249, 249);
+  color: rgb(102, 51, 0);
+  font-weight: bolder;
 }
 .nav-link{
-  color: aliceblue;
+  color: rgb(102, 51, 0);
   /* background-color: blue; */
 }
 .navbar-brand{
-  color:white;
+  color: rgb(102, 51, 0);
 }
 .navbar-nav{
   margin-left: auto;

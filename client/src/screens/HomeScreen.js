@@ -29,7 +29,6 @@ const HomeScreen = () => {
 
         setData(data.rooms)
         setduplicaterooms(data.rooms)
-        //console.log(data);
         setloading(false)
 
       } catch (error) {
