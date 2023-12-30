@@ -69,18 +69,9 @@ const HomeScreen = () => {
               availability = true;
 
             }
-            // else{
-            //   availability = false;
-            // }
           }
-          // else{
-          //   availability = false;
-          // }
         }
       }
-      // else{
-      //  availability=false;
-      // }
 
       if (availability === true || room.currentbookings.length === 0) {
         console.log("hello" + `${c}`);

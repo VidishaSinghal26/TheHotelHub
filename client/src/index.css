@@ -105,8 +105,9 @@ input {
 }
 
 .landing{
-  background: url('https://banabithiresort.com/admin-login/img/634a692353df9.png') no-repeat;
+  background: url('images/landing_bg.jpg') no-repeat;
   background-size: 1500px 1000px;
+  overflow: hidden;
   height: 591px;
   padding-top: 120px;
   width: 210.3vh ;
