@@ -15,13 +15,13 @@ import bookingRoute from './routes/bookingRoute'
 const app = express();
 
 //middleware
-app.use(cors(
-   {
-      origin: ["https://the-hotel-hub.vercel.app"],
-      methods: ["POST" , "GET"],
-      credentials: true
-   }
-));
+// app.use(cors(
+//    {
+//       origin: ["https://the-hotel-hub.vercel.app"],
+//       methods: ["POST" , "GET"],
+//       credentials: true
+//    }
+// ));
 app.use(express.json())
 app.use('/api/rooms' , roomsRoute)
 app.use('/api/users', usersRoute)
@@ -34,7 +34,7 @@ app.use('/api/booking' , bookingRoute)
 
 
 //mongodb direct connection
-mongoose.connect('mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms')
+mongoose.connect('<mongodb url')
 .then( ()=>
    console.log("Connected to mongo Successful")
 )
