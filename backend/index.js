@@ -15,13 +15,17 @@ import bookingRoute from './routes/bookingRoute'
 const app = express();
 
 //middleware
-// app.use(cors(
-//    {
-//       origin: ["https://the-hotel-hub.vercel.app"],
-//       methods: ["POST" , "GET"],
-//       credentials: true
-//    }
-// ));
+app.use(cors(
+   {
+      origin: ["https://the-hotel-hub.vercel.app"],
+      methods: ["POST" , "GET"],
+      credentials: true
+   }
+));
+
+api.get("/" , (req, res)=>{
+   res.json("hello");
+})
 app.use(express.json())
 app.use('/api/rooms' , roomsRoute)
 app.use('/api/users', usersRoute)
