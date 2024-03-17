@@ -17,7 +17,7 @@ const app = express();
 //middleware
 app.use(cors(
    {
-      origin: ["https://the-hotel-hub-project.vercel.app/"],
+      origin: ["https://the-hotel-hub-project.vercel.app"],
       methods: ["POST" , "GET"],
       credentials: true
    }
