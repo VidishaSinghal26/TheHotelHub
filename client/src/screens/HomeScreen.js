@@ -25,7 +25,7 @@ const HomeScreen = () => {
     const fetchData = async () => {
       try {
         setloading(true)
-        const data = (await axios.get("https://the-hotel-hub-qda7.vercel.app/api/rooms/getallrooms")).data
+        const data = (await axios.get("https://the-hotel-hub.vercel.app/api/rooms/getallrooms")).data
 
         setData(data.rooms)
         setduplicaterooms(data.rooms)
