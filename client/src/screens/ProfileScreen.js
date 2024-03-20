@@ -51,7 +51,7 @@ export function MyBookings(){
         const fetchData = async () => {
           try {
             setloading(true)
-            const rooms = await (await axios.post('https://the-hotel-hub-qda7.vercel.app/api/booking/getbookingsbyuserid', {userid : user._id})).data;
+            const rooms = await (await axios.post('https://the-hotel-hub.vercel.app/api/booking/getbookingsbyuserid', {userid : user._id})).data;
             //const rooms = (await axios.post("http://localhost:5000/api/booking/getbookingsbyuserid" , {userid : user._id})).data;
             console.log(rooms);
             setbookings(rooms);
@@ -69,7 +69,7 @@ export function MyBookings(){
       async function cancelBooking(bookingid , roomid){
         try{
           setloading(true)
-          const result = await (await axios.post('https://the-hotel-hub-qda7.vercel.app/api/booking/cancelbooking' , {bookingid , roomid})).data
+          const result = await (await axios.post('https://the-hotel-hub.vercel.app/api/booking/cancelbooking' , {bookingid , roomid})).data
           console.log(result);
           setloading(false )
           Swal.fire('OK' , 'Your booking has been cancelled' , 'success').then(result=>{
