@@ -25,7 +25,7 @@ function RegisterScreen() {
       }
       try {
         setloading(true)
-        const result = (await axios.post('https://the-hotel-hub-qda7.vercel.app/api/users/register', user)).data;
+        const result = (await axios.post('https://the-hotel-hub.vercel.app/api/users/register', user)).data;
         console.log(result)
         setloading(false)
         setsuccess(true)
