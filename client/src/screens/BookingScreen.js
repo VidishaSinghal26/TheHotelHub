@@ -36,7 +36,7 @@ const BookingScreen = () => {
     const fetchData = async () => {
       try {
         setloading(true)
-        const data = (await axios.post('https://the-hotel-hub-qda7.vercel.app/api/rooms/getallroomsbyid', { roomsid: roomsid })).data
+        const data = (await axios.post('https://the-hotel-hub.vercel.app/api/rooms/getallroomsbyid', { roomsid: roomsid })).data
         setroom(data.room);
         settotalamount(data.room.rentperday * totaldays)
         setbookingdate(date+'-'+month+'-'+ year );
@@ -73,7 +73,7 @@ const BookingScreen = () => {
     try {
 
       setloading(true);
-      const result = await axios.post('https://the-hotel-hub-qda7.vercel.app/api/booking/bookroom', bookingDetails);
+      const result = await axios.post('https://the-hotel-hub.vercel.app/api/booking/bookroom', bookingDetails);
       setloading(false);
       Swal.fire('Congratulations' , 'Your room booked successfully' , 'success').then(result=>{
         if(result.value){
