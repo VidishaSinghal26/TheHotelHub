@@ -1,10 +1,10 @@
 import express from "express";
 import mongoose from "mongoose";
 //import dotenv from 'dotenv';
-import roomsRoute from "./routes/roomsRoute";
-import usersRoute from "./routes/usersRoute";
-import cors from 'cors'
-import bookingRoute from './routes/bookingRoute'
+import roomsRoute from "./routes/roomsRoute.js";
+import usersRoute from "./routes/usersRoute.js";
+import cors from "cors";
+import bookingRoute from './routes/bookingRoute.js";
 //import postRouter from "./routing/post-routes";
 
 // const express = require('express')
