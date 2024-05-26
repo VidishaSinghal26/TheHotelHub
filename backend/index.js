@@ -11,68 +11,40 @@ import bookingRoute from "./routes/bookingRoute.js";
 // const mongoose = require('mongoose');
 //const roomsRoute = require('../routes/roomsRoute')
 
-
 const app = express();
 
 //middleware
 app.use(cors());
 
-api.get("/" , (req, res)=>{
-   res.json("hello");
-})
+app.get("/", (req, res) => {
+  res.json("hello world 4");
+});
 app.use(express.json());
-app.use("/api/rooms" , roomsRoute);
+app.use("/api/rooms", roomsRoute);
 app.use("/api/users", usersRoute);
-app.use("/api/booking" , bookingRoute);
+app.use("/api/booking", bookingRoute);
 //app.use('/api/rooms' , roomsRoute)
 
 //connection
 // const connectDB = require('./db')
 // connectDB()
-
-
 //mongodb direct connection
-mongoose.connect("mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms")
-.then(() => console.log("Connected to mongo Successful"))
-.catch((err) => console.log(console.log(err)));
+mongoose
+  .connect(
+    "mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms"
+  )
+  .then(() => console.log("Connected to mongo Successful"))
+  .catch((err) => console.log(console.log(err)));
 
-
-
-
-const port =  5000;
+const port = 5000;
 
 app.listen(port, () => console.log("Node Server Started"));
 
-
 //module.exports = routes;
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 // // const connectToMongo = require('./db');
 // // const express = require('express');
 // // const mongoose = require('mongoose');
-
 
 // // connectToMongo();
 // // const app = express()
@@ -88,7 +60,7 @@ app.listen(port, () => console.log("Node Server Started"));
 // //
 
 // // const connectDB =  ()=>{
-// //      mongoose.connect ('mongodb+srv://Vidisha:vidish@@cluster0.qzyclx9.mongodb.net/test/hotel-rooms');    
+// //      mongoose.connect ('mongodb+srv://Vidisha:vidish@@cluster0.qzyclx9.mongodb.net/test/hotel-rooms');
 // // };
 
 // // connectDB();
@@ -109,5 +81,3 @@ app.listen(port, () => console.log("Node Server Started"));
 // app.listen(port, () => {
 //     console.log(`Example app listening on port ${port}`)
 // })
-
-
