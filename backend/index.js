@@ -22,9 +22,9 @@ api.get("/" , (req, res)=>{
 })
 
 app.use(express.json())
-app.use('/api/rooms' , roomsRoute)
-app.use('/api/users', usersRoute)
-app.use('/api/booking' , bookingRoute)
+app.use("/api/rooms" , roomsRoute)
+app.use("/api/users", usersRoute)
+app.use("/api/booking" , bookingRoute)
 //app.use('/api/rooms' , roomsRoute)
 
 //connection
@@ -33,7 +33,7 @@ app.use('/api/booking' , bookingRoute)
 
 
 //mongodb direct connection
-mongoose.connect('mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms?retryWrites=true&w=majority&appName=Cluster0')
+mongoose.connect("mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms?retryWrites=true&w=majority&appName=Cluster0")
 .then( ()=>
    console.log("Connected to mongo Successful")
 )
