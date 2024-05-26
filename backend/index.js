@@ -17,10 +17,10 @@ const app = express();
 //middleware
 app.use(cors());
 
-
 api.get("/" , (req, res)=>{
    res.json("hello");
 })
+
 app.use(express.json())
 app.use('/api/rooms' , roomsRoute)
 app.use('/api/users', usersRoute)
