@@ -4,7 +4,7 @@ import mongoose from "mongoose";
 import roomsRoute from "./routes/roomsRoute.js";
 import usersRoute from "./routes/usersRoute.js";
 import cors from "cors";
-import bookingRoute from './routes/bookingRoute.js";
+import bookingRoute from "./routes/bookingRoute.js";
 //import postRouter from "./routing/post-routes";
 
 // const express = require('express')
