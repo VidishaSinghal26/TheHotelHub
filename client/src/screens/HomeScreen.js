@@ -25,7 +25,7 @@ const HomeScreen = () => {
     const fetchData = async () => {
       try {
         setloading(true)
-        const data = (await axios.get("https://the-hotel-hub.vercel.app/api/rooms/getallrooms")).data
+        const data = (await axios.get("https://the-hotel-hub-theta.vercel.app/api/rooms/getallrooms")).data
 
         setData(data.rooms)
         setduplicaterooms(data.rooms)
@@ -41,46 +41,41 @@ const HomeScreen = () => {
   }, []);
 
 
-  function filterByDate(dates) {
+  
+function filterByDate(dates) {
+    setfromdate(dates[0].format('DD-MM-YYYY'));
+    settodate(dates[1].format('DD-MM-YYYY'));
+    console.log(dates[0].format('DD-MM-YYYY'));
+    console.log(dates[1].format('DD-MM-YYYY'));
 
-
-    console.log(dates[0].format('DD-MM-YYYY'))
-    console.log(dates[1].format('DD-MM-YYYY'))
-    setfromdate(dates[0].format('DD-MM-YYYY'))
-    settodate(dates[1].format('DD-MM-YYYY'))
-
-    var c = 0;
-    var temprooms = []
-    var availability = false;
+    var temprooms = [];
+    var availability;
     for (const room of duplicaterooms) {
+      //  console.log(room);
+        availability = true; 
+        if (room.currentbookings.length > 0) {
+            for (const booking of room.currentbookings) {
 
-      if (room.currentbookings.length > 0) {
-
-        for (const booking of room.currentbookings) {
-
-          if ((!moment(dates[0].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate))
-            && (!moment(dates[1].format('DD-MM-YYYY')).isBetween(booking.fromdate, booking.todate))) {
-
-            if (dates[0].format('DD-MM-YYYY') !== booking.fromdate &&
-              dates[0].format('DD-MM-YYYY') !== booking.todate &&
-              dates[1].format('DD-MM-YYYY') !== booking.fromdate &&
-              dates[1].format('DD-MM-YYYY') !== booking.todate) {
-              console.log(booking.fromdate)
-              availability = true;
-
+                if (
+                  isDateBetween(dates[0].format('DD-MM-YYYY'), booking.fromdate, booking.todate ) || 
+                  isDateBetween(dates[1].format('DD-MM-YYYY'), booking.fromdate, booking.todate ) 
+                    // moment(booking.fromdate).isBetween(dates[0], dates[1]) ||
+                    // moment(booking.todate).isBetween(dates[0], dates[1])
+                ) {
+                   availability = false;
+                }
             }
-          }
         }
-      }
-
-      if (availability === true || room.currentbookings.length === 0) {
-        console.log("hello" + `${c}`);
-        c++;
-        temprooms.push(room)
-      }
-      setData(temprooms)
+        if (availability) {
+            temprooms.push(room);
+        }
     }
-  }
+    setData(temprooms);
+}
+
+function isDateBetween(dateToCheck, fromDate, toDate) {
+  return fromDate <= dateToCheck && dateToCheck <= toDate;
+}
 
   function filterBySearch(){
     const temprooms = duplicaterooms.filter(rooms => rooms.name.toLowerCase().includes(searchkey.toLowerCase()))
