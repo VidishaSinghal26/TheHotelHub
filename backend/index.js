@@ -20,11 +20,10 @@ app.use(cors());
 api.get("/" , (req, res)=>{
    res.json("hello");
 })
-
-app.use(express.json())
-app.use("/api/rooms" , roomsRoute)
-app.use("/api/users", usersRoute)
-app.use("/api/booking" , bookingRoute)
+app.use(express.json());
+app.use("/api/rooms" , roomsRoute);
+app.use("/api/users", usersRoute);
+app.use("/api/booking" , bookingRoute);
 //app.use('/api/rooms' , roomsRoute)
 
 //connection
@@ -34,19 +33,15 @@ app.use("/api/booking" , bookingRoute)
 
 //mongodb direct connection
 mongoose.connect("mongodb+srv://Vidisha:vidisha@cluster0.mgwgzxk.mongodb.net/hotel-rooms")
-.then( ()=>
-   console.log("Connected to mongo Successful")
-)
-.catch( (err) => 
-console.log(console.log(err)
-))
+.then(() => console.log("Connected to mongo Successful"))
+.catch((err) => console.log(console.log(err)));
 
 
 
 
 const port =  5000;
 
-app.listen(port, () => console.log("Node Server Started"))
+app.listen(port, () => console.log("Node Server Started"));
 
 
 //module.exports = routes;
